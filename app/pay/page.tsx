@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import QRCode from "qrcode";
@@ -7,7 +8,7 @@ import Image from "next/image";
 
 import PaymentOptionLink from "./_components/payment-option-link";
 
-export default function Pay() {
+function PayContent() {
   const searchParams = useSearchParams();
   const [qrCodeUrl, setQrCodeUrl] = useState<string | null>(null);
   const [deeplink, setDeeplink] = useState<string>("");
@@ -106,5 +107,13 @@ export default function Pay() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function Pay() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <PayContent />
+    </Suspense>
   );
 }
