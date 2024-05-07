@@ -5,8 +5,10 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Create a OR and UPI link",
-  description: "Free UPI QR and link generator",
+  title:
+    "UPI Payment Link Generator - Easy and Secure Online Payments for Everyone",
+  description:
+    "Generate UPI payment links in seconds with our easy-to-use tool. Enter your UPI ID, amount, and note (optional), and we'll create a link that you can share with anyone.",
 };
 
 export default function RootLayout({

@@ -53,39 +53,39 @@ function PayContent() {
   return (
     <div>
       {qrCodeUrl && (
-        <div className="p-8 flex flex-col items-center justify-center h-screen bg-zinc-200">
-          <div className="bg-white p-2 mt-16 rounded-xl shadow-sm">
-            <Image src={qrCodeUrl} alt="QR Code" width={250} height={250} />
+        <div className="p-6 flex flex-col items-center justify-center h-screen bg-zinc-200">
+          <div className="bg-white p-1 mt-12 rounded-xl shadow-sm">
+            <Image src={qrCodeUrl} alt="QR Code" width={225} height={225} />
           </div>
           <div className="mt-12">
-            <p className="text-center text-lg text-gray-700">You are paying</p>
-            <p className="text-center text-xl font-semibold">{upi}</p>
+            <p className="text-center text-md text-gray-700">You are paying</p>
+            <p className="text-center text-lg font-semibold">{upi}</p>
           </div>
           {amount && (
             <div className="mt-8">
-              <p className="text-center text-lg text-gray-700">amount</p>
-              <p className="text-center text-xl font-semibold">{amount}</p>
+              <p className="text-center text-md text-gray-700">amount</p>
+              <p className="text-center text-lg font-semibold">{amount}</p>
             </div>
           )}
           {note && (
             <div className="mt-4">
-              <p className="text-center text-lg text-gray-700">for</p>
-              <p className="text-center text-xl font-semibold">{note}</p>
+              <p className="text-center text-md text-gray-700">for</p>
+              <p className="text-center text-lg font-semibold">{note}</p>
             </div>
           )}
-          <div className="flex gap-x-6 mt-8 p-4">
+          <div className="flex gap-x-6 mt-6 p-4">
             <PaymentOptionLink
               deeplink={`gpay://upi/${deeplink}`}
               imagePath="/logos/gpay.png"
               altText="Google Pay"
             />
             <PaymentOptionLink
-              deeplink={`phonepay://upi/${deeplink}`}
+              deeplink={`phonepe://upi/${deeplink}`}
               imagePath="/logos/phonepe.png"
               altText="PhonePe"
             />
             <PaymentOptionLink
-              deeplink={`paytm://upi/${deeplink}`}
+              deeplink={`paytmmp://upi/${deeplink}`}
               imagePath="/logos/paytm.png"
               altText="Paytm"
             />
@@ -95,13 +95,12 @@ function PayContent() {
               altText="BHIM"
             />
           </div>
-          <div className="mt-16">
-            <a
-              className="text-muted-foreground underline underline-offset-2 text-sm"
-              href="https://upi.me"
-            >
+          <div className="mt-6">
+            <a className="text-sm font-semibold" href="https://upi.me">
               Create UPI payment links using{" "}
-              <span className="font-semibold">UPI.me</span>
+              <span className="font-semibold text-muted-foreground underline underline-offset-2 text-sm">
+                UPI.me
+              </span>
             </a>
           </div>
         </div>
