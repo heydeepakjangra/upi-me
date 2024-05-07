@@ -80,12 +80,12 @@ function PayContent() {
               altText="Google Pay"
             />
             <PaymentOptionLink
-              deeplink={`phonepe://upi/${deeplink}`}
+              deeplink={`phonepe://${deeplink}`}
               imagePath="/logos/phonepe.png"
               altText="PhonePe"
             />
             <PaymentOptionLink
-              deeplink={`paytmmp://upi/${deeplink}`}
+              deeplink={`paytmmp://${deeplink}`}
               imagePath="/logos/paytm.png"
               altText="Paytm"
             />
