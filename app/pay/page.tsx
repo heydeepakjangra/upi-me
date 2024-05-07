@@ -54,7 +54,7 @@ function PayContent() {
     <div>
       {qrCodeUrl && (
         <div className="p-6 flex flex-col items-center justify-center h-screen bg-zinc-200">
-          <div className="bg-white p-1 mt-12 rounded-xl shadow-sm">
+          <div className="bg-white p-1 mt-8 rounded-xl shadow-sm">
             <Image src={qrCodeUrl} alt="QR Code" width={225} height={225} />
           </div>
           <div className="mt-12">
@@ -111,7 +111,13 @@ function PayContent() {
 
 export default function Pay() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense
+      fallback={
+        <div className="flex justify-center items-center h-screen">
+          Loading...
+        </div>
+      }
+    >
       <PayContent />
     </Suspense>
   );
