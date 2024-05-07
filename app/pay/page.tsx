@@ -31,12 +31,16 @@ export default function Pay() {
         setDeeplink(generatedDeeplink);
 
         const upiDeepLink = `upi://${generatedDeeplink}`;
-        const qrCode = await QRCode.toDataURL(upiDeepLink, {
-          colorDark: "#000000",
-          colorLight: "#ffffff",
-          margin: 1,
+        const canvas = document.createElement("canvas");
+        QRCode.toCanvas(canvas, upiDeepLink, function (error) {
+          if (error) {
+            console.error(error);
+            return;
+          }
+          // Convert the canvas to a data URL
+          const qrCodeUrl = canvas.toDataURL();
+          setQrCodeUrl(qrCodeUrl);
         });
-        setQrCodeUrl(qrCode);
       } catch (error) {
         console.error("Error generating QR code:", error);
       }
@@ -49,8 +53,8 @@ export default function Pay() {
     <div>
       {qrCodeUrl && (
         <div className="p-8 flex flex-col items-center justify-center h-screen bg-zinc-200">
-          <div className="bg-white p-4 mt-16 rounded-xl shadow-sm">
-            <Image src={qrCodeUrl} alt="QR Code" width={200} height={200} />
+          <div className="bg-white p-2 mt-16 rounded-xl shadow-sm">
+            <Image src={qrCodeUrl} alt="QR Code" width={250} height={250} />
           </div>
           <div className="mt-12">
             <p className="text-center text-lg text-gray-700">You are paying</p>
